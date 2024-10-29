@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="Usuario" type="com.iammagis.autopagos.jpa.beans.Usuario"/>
+        <form-bean name="Convenios" type="com.iammagis.autopagos.jpa.beans.Convenios"/>
+        <form-bean name="Factura" type="com.iammagis.autopagos.jpa.beans.Factura"/>
+        <form-bean name="FacturaAutopagos" type="com.iammagis.autopagos.jpa.beans.FacturaAutopagos"/> 
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="inicio"  path="/Inicio.ap"/> 
+    </global-forwards>
+
+    <action-mappings>
+        <!--GLOBALES-->
+        <action path="/Inicio" forward="/login.jsp"/>
+        <action path="/OlvidoClave" forward="/olvido.jsp"/> 
+        <action path="/Logout" type="com.iammagis.autopagos.acciones.sesion.Logout">
+            <forward name="success"  path="/login.jsp"/> 
+        </action>
+        <action name="Usuario" path="/Login" type="com.iammagis.autopagos.acciones.sesion.Login">
+              <forward name="success" path="/systema.jsp"/>
+              <forward name="error" path="/login.jsp"/> 
+        </action>
+        <action path="/LoadInicio" type="com.iammagis.autopagos.acciones.sesion.LoadInicio">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <!--USUARIO-->
+        <action path="/LoadGestionUsuarios" type="com.iammagis.autopagos.acciones.usuarios.LoadGestionUsuarios">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+         <action path="/DeleteUser" type="com.iammagis.autopagos.acciones.usuarios.DeleteUser"/>
+        <action name="Usuario" path="/EditarUsuario" type="com.iammagis.autopagos.acciones.usuarios.EditarUsuario"/>
+        <action path="/LoadUsuarioJson" type="com.iammagis.autopagos.acciones.usuarios.LoadUsuarioJson"/>
+        <action name="Usuario" path="/CreateUsuario" type="com.iammagis.autopagos.acciones.usuarios.CreateUsuario"/>
+        <action path="/LoadConveniosFromTipoUsuario" type="com.iammagis.autopagos.acciones.usuarios.LoadConveniosFromTipoUsuario"/>
+        
+        <!--CONVENIOS-->
+        <action path="/LoadGestionConvenios" type="com.iammagis.autopagos.acciones.convenios.LoadGestionConvenios">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <action path="/DeleteConvenio" type="com.iammagis.autopagos.acciones.convenios.DeleteConvenio"/>
+        <action name="Convenios" path="/EditConvenio" type="com.iammagis.autopagos.acciones.convenios.EditConvenio"/>
+        <action path="/LoadConvenioJson" type="com.iammagis.autopagos.acciones.convenios.LoadConvenioJson"/>
+        <action name="Convenios" path="/CreateConvenio" type="com.iammagis.autopagos.acciones.convenios.CreateConvenio"/>
+        
+        <!--FACTURAS ADMINISTRACION AUTOPAGOS-->
+        <action path="/LoadGestionFacturas" type="com.iammagis.autopagos.acciones.facturas.LoadGestionFacturas">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <!--ONLINE-->
+        <action path="/LoadResumenOnline" type="com.iammagis.autopagos.acciones.online.LoadResumenOnline">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <!--SIPAR-->
+        <action path="/LoadResumenSipar" type="com.iammagis.autopagos.acciones.sipar.LoadResumenSipar">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <!--AUTORED-->
+        <action path="/LoadResumenAutored" type="com.iammagis.autopagos.acciones.autored.LoadResumenAutored">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        
+        <action path="/SearchAutoredTableTRX" type="com.iammagis.autopagos.acciones.autored.SearchAutoredTableTRX"/>
+        <action path="/SearchSiparTableTRX" type="com.iammagis.autopagos.acciones.sipar.SearchSiparTableTRX"/>
+        <action path="/SearchOnlineTableTRX" type="com.iammagis.autopagos.acciones.online.SearchOnlineTableTRX"/>
+        <action path="/SearchIndicatorsData" type="com.iammagis.autopagos.acciones.sesion.root.SearchIndicatorsData"/>
+        <!--DAEMON-->
+        <action path="/LoadGestionDaemon" type="com.iammagis.autopagos.acciones.daemon.LoadGestionDaemon">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <action path="/GuardarConfigDaemin" type="com.iammagis.autopagos.acciones.daemon.GuardarConfigDaemin"/> 
+        
+        <!--ESQUUEMA AUTORED-->
+        <action path="/LoadEsquemaAutored" type="com.iammagis.autopagos.acciones.autored.LoadEsquemaAutored">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <!--FACTURAS SPAR-->
+        <action path="/LoadFacturasConvenios" type="com.iammagis.autopagos.acciones.siparonline.facturas.LoadFacturasConvenios">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <action path="/PagarInv" type="com.iammagis.autopagos.acciones.siparonline.facturas.PagarInv"/>
+        <action path="/RememberInv" type="com.iammagis.autopagos.acciones.siparonline.facturas.RememberInv"/>
+        <action path="/SendInvoiceRemember" type="com.iammagis.autopagos.acciones.siparonline.facturas.SendInvoiceRemember"/>
+        <action name="Factura" path="/UpdateFacturasForm" type="com.iammagis.autopagos.acciones.siparonline.facturas.UpdateFacturasForm"/>
+        <action name="Factura" path="/UpdateFacturasTemplateForm" type="com.iammagis.autopagos.acciones.siparonline.facturas.UpdateFacturasTemplateForm"/>
+        <action path="/DeleteFacturaFromConvenio" type="com.iammagis.autopagos.acciones.siparonline.facturas.DeleteFacturaFromConvenio"/>
+        <action path="/InscribirFacturaConvenio" type="com.iammagis.autopagos.acciones.siparonline.facturas.InscribirFacturaConvenio"/>
+        
+        
+        <!--PLANTILLAS SIPAR-->
+        <action path="/LoadPlantillasFacturas" type="com.iammagis.autopagos.acciones.sipar.plantillas.LoadPlantillasFacturas">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <action path="/EditPlantillaFactura" type="com.iammagis.autopagos.acciones.sipar.plantillas.EditPlantillaFactura"/>
+        <action path="/LoadPlantillaJson" type="com.iammagis.autopagos.acciones.sipar.plantillas.LoadPlantillaJson"/>
+        <action path="/PreviewPlantilla" type="com.iammagis.autopagos.acciones.sipar.plantillas.PreviewPlantilla"/>
+        <action path="/DeletePlantilla" type="com.iammagis.autopagos.acciones.sipar.plantillas.DeletePlantilla"/>
+        <action path="/CreatePlantillaFactura" type="com.iammagis.autopagos.acciones.sipar.plantillas.CreatePlantillaFactura"/>
+        <!--CONFIGURACION ONLINE-->
+        <action path="/LoadConfiguracion" type="com.iammagis.autopagos.acciones.online.configuracion.LoadConfiguracion">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <action name="Convenios" path="/SaveConvenioDocs" type="com.iammagis.autopagos.acciones.online.configuracion.SaveConvenioDocs"/>
+        <action name="Convenios" path="/SaveConvenioConfiguracion" type="com.iammagis.autopagos.acciones.online.configuracion.SaveConvenioConfiguracion"/>
+        
+        <!--PAGO-->
+        <action path="/LoadPagoSipar" type="com.iammagis.autopagos.acciones.pago.LoadPagoSipar">
+            <forward name="success" path="/recaudo_autopagos.jsp"/>
+            <forward name="comprobando" path="/comprobando.jsp"/> 
+            <forward name="pagada" path="/pagada.jsp"/> 
+            <forward name="error" path="/error.jsp"/> 
+        </action>
+        <action path="/LoadPago" type="com.iammagis.autopagos.acciones.pago.LoadPago">
+            <forward name="success" path="/recaudo.jsp"/>
+            <forward name="comprobando" path="/comprobando.jsp"/> 
+            <forward name="pagada" path="/pagada.jsp"/> 
+            <forward name="error" path="/error.jsp"/> 
+        </action>
+        <action path="/SolicitudPago" type="com.iammagis.autopagos.acciones.sesion.online.SolicitudPago"/>
+        <action path="/SearchIndicatorsDataSipar" type="com.iammagis.autopagos.acciones.sesion.sipar.SearchIndicatorsDataSipar"/>
+        <action path="/SearchIndicatorsDataOnline" type="com.iammagis.autopagos.acciones.sesion.online.SearchIndicatorsDataOnline"/>
+        <action name="Factura" scope="request" path="/Pago" type="com.iammagis.autopagos.acciones.pago.Pago">
+            <forward name="error" path="/error.jsp"/> 
+        </action>
+        
+        <!--PAGO USUARIO-->
+        <action path="/LoadPagoUsuario" type="com.iammagis.autopagos.acciones.pago.LoadPagoUsuario">
+            <forward name="success" path="/recaudo_abierto.jsp"/>
+            <forward name="comprobando" path="/comprobando.jsp"/> 
+            <forward name="pagada" path="/pagada.jsp"/> 
+            <forward name="error" path="/error.jsp"/> 
+        </action>
+        
+        <!--PRINT EXPORT-->
+         <action path="/XlsGenerator" type="com.iammagis.autopagos.export.XlsGenerator"/>
+        <action path="/PdfGenerator" type="com.iammagis.autopagos.export.PdfGenerator"/>
+        <!--DESEMBOLSOS-->
+        <action path="/LoadDesembolsosPendientes" type="com.iammagis.autopagos.acciones.online.LoadDesembolsosPendientes">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <action path="/PagoDesembolso" type="com.iammagis.autopagos.acciones.online.PagoDesembolso"/>
+        <action path="/LoadDesembolsosOnline" type="com.iammagis.autopagos.acciones.online.LoadDesembolsosOnline"/>
+        <!--FACTURAS AUTOPAGOA-->
+        <action path="/LoadFacturasAutopagos" type="com.iammagis.autopagos.acciones.facturasautopagos.LoadFacturasAutopagos">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        
+        <action path="/InvitationMovilUser" type="com.iammagis.autopagos.acciones.movil.InvitationMovilUser"/> 
+        <action path="/DetalleFactura" type="com.iammagis.autopagos.acciones.facturasautopagos.DetalleFactura"/>
+         
+        <action name="Usuario" path="/EnviarClave" type="com.iammagis.autopagos.acciones.usuarios.EnviarClave">
+            <forward name="success" path="/login.jsp"/> 
+            <forward name="error" path="/olvido.jsp"/> 
+        </action>
+        <action name="FacturaAutopagos" path="/PagoSipar" type="com.iammagis.autopagos.acciones.pago.PagoSipar">
+            <forward name="error" path="/error.jsp"/> 
+        </action>
+        <action path="/LoadInvitacionMovil" type="com.iammagis.autopagos.acciones.movil.LoadInvitacionMovil">
+            <forward name="success" path="/invitacion.jsp"/> 
+             <forward name="error" path="/error.jsp"/> 
+        </action>
+        <action path="/SearchEsquemaTextAutored" type="com.iammagis.autopagos.acciones.autored.SearchEsquemaTextAutored"/>
+        <action path="/SearchEsquemaAutored" type="com.iammagis.autopagos.acciones.autored.SearchEsquemaAutored"/>
+        <action path="/PushNotification" type="com.iammagis.autopagos.acciones.movil.PushNotification"/>
+        <action path="/LoadFacturasAutored" type="com.iammagis.autopagos.acciones.facturas.autored.LoadFacturasAutored">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <action path="/LoadResumenPlataforma" type="com.iammagis.autopagos.acciones.sesion.LoadResumenPlataforma">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        <action path="/LoadPagoTerceros" type="com.iammagis.autopagos.acciones.sipar.pagos.LoadPagoTerceros">
+            <forward name="success" path="/systema.jsp"/> 
+        </action>
+        
+        <action path="/LoadConveniosRecargas" type="com.iammagis.autopagos.acciones.services.recargas.LoadConveniosRecargas"/>
+        <action path="/LoadConveniosAsociados" type="com.iammagis.autopagos.acciones.services.LoadConveniosAsociados">
+            <forward name="success" path="/convenios.jsp"/> 
+        </action>
+        
+        
+        <action path="/ConfirmationTest" type="com.iammagis.autopagos.acciones.movil.ConfirmationTest"/>
+        <action path="/LoadBancosMovil" type="com.iammagis.autopagos.acciones.movil.LoadBancosMovil"/>
+        <action path="/QueryTest" type="com.iammagis.autopagos.acciones.movil.QueryTest"/>
+        <action path="/DeleteFacturaMovil" type="com.iammagis.autopagos.acciones.movil.DeleteFacturaMovil"/> 
+        <action path="/ValidarFacturaMovil" type="com.iammagis.autopagos.acciones.movil.ValidarFacturaMovil"/>
+        <action path="/LoginUserMovil" type="com.iammagis.autopagos.acciones.movil.LoginUserMovil"/> 
+        
+        
+        <action path="/CreateEmailForm" type="com.iammagis.autopagos.acciones.services.CreateEmailForm"/>
+        
+        
+        
+        
+        <action name="FacturaAutopagos" path="/CreateFacturaPlanAutopagos" type="com.iammagis.autopagos.acciones.facturas.CreateFacturaPlanAutopagos"/>
+        <action path="/RecordarFacturaAutopagos" type="com.iammagis.autopagos.acciones.facturas.RecordarFacturaAutopagos"/>
+        <action path="/PagarFacturaAutopagos" type="com.iammagis.autopagos.acciones.facturas.PagarFacturaAutopagos"/>
+        <action path="/AnularFacturaAutopagos" type="com.iammagis.autopagos.acciones.facturas.AnularFacturaAutopagos"/>
+        <action name="FacturaAutopagos" path="/CreateFacturaAutopagos" type="com.iammagis.autopagos.acciones.facturas.CreateFacturaAutopagos"/>
+        
+        <action path="/LoadConveniosMovil" type="com.iammagis.autopagos.acciones.movil.LoadConveniosMovil"/>
+        <action path="/EnviarComprobanteMovil" type="com.iammagis.autopagos.acciones.movil.EnviarComprobanteMovil"/>
+        <action path="/LoadComprobantesMovil" type="com.iammagis.autopagos.acciones.movil.LoadComprobantesMovil"/>
+        <action path="/PagarFacturasMovil" type="com.iammagis.autopagos.acciones.movil.PagarFacturasMovil"/>
+        <action path="/CargarFacturasMovil" type="com.iammagis.autopagos.acciones.movil.CargarFacturasMovil"/>
+        <action path="/InscribirMovilFactura" type="com.iammagis.autopagos.acciones.movil.InscribirMovilFactura"/>
+        <action path="/LoadReferidosMovil" type="com.iammagis.autopagos.acciones.movil.LoadReferidosMovil"/>
+        
+        <!--REferencia comercio -->
+        <action path="/LoadReferenciaComercio" type="com.iammagis.autopagos.acciones.comercio.LoadReferenciaComercio">
+            <forward name="success" path="/comercio.jsp"/> 
+        </action>
+        <action path="/PagoReturn" type="com.iammagis.autopagos.acciones.pago.PagoReturn"/>
+        <action path="/SendReferenciaComercio" type="com.iammagis.autopagos.acciones.comercio.SendReferenciaComercio"/>
+       
+        
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/iammagis/autopagos/resources"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

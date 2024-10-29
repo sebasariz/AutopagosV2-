@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="AutopagosV2PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.iammagis.autopagos.jpa.beans.Banco</class>
+    <class>com.iammagis.autopagos.jpa.beans.Campo</class>
+    <class>com.iammagis.autopagos.jpa.beans.Canal</class>
+    <class>com.iammagis.autopagos.jpa.beans.Clase</class>
+    <class>com.iammagis.autopagos.jpa.beans.Codigo</class>
+    <class>com.iammagis.autopagos.jpa.beans.ComprobanterecaudoPSE</class>
+    <class>com.iammagis.autopagos.jpa.beans.Config</class>
+    <class>com.iammagis.autopagos.jpa.beans.Dispositivo</class>
+    <class>com.iammagis.autopagos.jpa.beans.Estado</class>
+    <class>com.iammagis.autopagos.jpa.beans.Factura</class>
+    <class>com.iammagis.autopagos.jpa.beans.FacturaAutopagos</class>
+    <class>com.iammagis.autopagos.jpa.beans.FacturaTemplate</class>
+    <class>com.iammagis.autopagos.jpa.beans.LogIngreso</class>
+    <class>com.iammagis.autopagos.jpa.beans.Modulo</class>
+    <class>com.iammagis.autopagos.jpa.beans.Notificacion</class>
+    <class>com.iammagis.autopagos.jpa.beans.Plan</class>
+    <class>com.iammagis.autopagos.jpa.beans.SubModulo</class>
+    <class>com.iammagis.autopagos.jpa.beans.TipoCuenta</class>
+    <class>com.iammagis.autopagos.jpa.beans.TipoTransaccion</class>
+    <class>com.iammagis.autopagos.jpa.beans.TipoUsuario</class>
+    <class>com.iammagis.autopagos.jpa.beans.Transaccion</class>
+    <class>com.iammagis.autopagos.jpa.beans.Usuario</class>
+    <class>com.iammagis.autopagos.jpa.beans.UsuarioHasUsuarioReferidosAutored</class>
+    <class>com.iammagis.autopagos.jpa.beans.Convenios</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/autopagosv2?zeroDateTimeBehavior=convertToNull"/>-->
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://31.220.63.157:3306/autopagosv2?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.password" value="sanignacio"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="sebasariz"/>
+      <property name="eclipselink.cache.shared.default" value="false"/>
+      <property name="eclipselink.cache.size.default" value="0"/>
+      <property name="eclipselink.cache.type.default" value="None"/>
+    </properties>
+  </persistence-unit>
+</persistence>

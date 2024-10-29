@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE isopackager SYSTEM "genericpackager.dtd">
+
+<!-- Chile field descriptions for GenericPackager -->
+
+<isopackager>
+  <isofield
+      id="0"
+      length="4"
+      name="Message Type Indicator"
+      class="org.jpos.iso.IFB_NUMERIC"/>
+      
+  <isofield
+      id="1"
+      length="16"
+      name="BIT MAP"
+      class="org.jpos.iso.IFB_BITMAP"/>    
+      
+  <isofield
+      id="2"
+      length="19"
+      name="PAN"     
+      class="org.jpos.iso.IFB_LLLCHAR"/>      
+      
+  <isofield
+      id="3"
+      length="6"
+      name="Processing Code"
+      class="org.jpos.iso.IFB_NUMERIC"/>      
+      
+  <isofield
+      id="4"
+      length="12"
+      name="amount"
+      class="org.jpos.iso.IFB_NUMERIC"/>  
+
+  <isofield
+      id="5"
+      length="12"
+      name="amount"
+      class="org.jpos.iso.IFB_NUMERIC"/> 
+      
+  <isofield
+      id="6"
+      length="12"
+      name="amount"
+      class="org.jpos.iso.IFB_NUMERIC"/>        
+      
+  <isofield
+      id="11"
+      length="6"
+      name="Systems trace audit number"
+      class="org.jpos.iso.IFB_NUMERIC"/>
+      
+  <isofield
+      id="12"
+      length="6"
+      name="Date and time, Local transaction"
+      class="org.jpos.iso.IFB_NUMERIC"/>
+      
+  <isofield
+      id="13"
+      length="4"
+      name="Date, Effective"
+      class="org.jpos.iso.IFB_NUMERIC"/>
+      
+  <isofield
+      id="14"
+      length="4"
+      name="Date, caduca"
+      class="org.jpos.iso.IFB_NUMERIC"/>      
+      
+  <isofield
+      id="30"
+      length="8"
+      name="process fee"
+      class="org.jpos.iso.IFB_NUMERIC"/>  
+      
+
+  <isofield
+      id="35"
+      length="100"
+      name="TRACK II"     
+      class="org.jpos.iso.IFB_LLLCHAR"/>      
+      
+  <isofield
+      id="37"
+      length="12"
+      name="Referencia local"
+      class="org.jpos.iso.IF_CHAR"/>   
+      
+  <isofield
+      id="38"
+      length="12"
+      name="Reserved for national use"
+      class="org.jpos.iso.IFB_BINARY"/>      
+      
+  <isofield
+      id="39"
+      length="2"
+      name="Action code"
+      class="org.jpos.iso.IFA_NUMERIC"/>
+      
+  <isofield
+      id="41"
+      length="8"
+      name="Card acceptor terminal identification"
+      class="org.jpos.iso.IF_CHAR"/>      
+      
+  <isofield
+      id="44"
+      length="12"
+      name="(Saldo)"
+      class="org.jpos.iso.IFB_LLCHAR"/>          
+      
+  <isofield
+      id="45"
+      length="100"
+      name="TRACK I"     
+      class="org.jpos.iso.IFB_LLLCHAR"/>
+
+  <isofield
+      id="48"
+      length="999"
+      name="Additional data - private"     
+      class="org.jpos.iso.IFB_LLLCHAR"/>
+      
+  <isofield
+      id="51"
+      length="3"
+      name="moneda origen"
+      class="org.jpos.iso.IF_CHAR"/>   
+      
+  <isofield
+      id="54"
+      length="12"
+      name="saldo"     
+      class="org.jpos.iso.IF_CHAR"/>      
+      
+  <isofield
+      id="52"
+      length="16"
+      name="PIN BLOCK"
+      class="org.jpos.iso.IF_CHAR"/>        
+
+  <isofield
+      id="60"
+      length="999"
+      name="Reserved for national use"
+      class="org.jpos.iso.IFB_LLLBINARY"/>
+
+  <isofield
+      id="61"
+      length="999"
+      name="Reserved for private use"
+      class="org.jpos.iso.IFB_LLLCHAR"/>
+      
+  <isofield
+      id="62"
+      length="999"
+      name="Reserved for private use"
+      class="org.jpos.iso.IFB_LLLBINARY"/>
+      
+  <isofield
+      id="63"
+      length="999"
+      name="Reserved for private use"
+      class="org.jpos.iso.IFB_LLLCHAR"/>
+      
+      
+</isopackager>

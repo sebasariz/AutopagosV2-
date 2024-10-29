@@ -1,0 +1,1347 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:impl="http://ws.puntored.brainwinner.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns1="http://dto.ws.puntored.brainwinner.com" targetNamespace="http://ws.puntored.brainwinner.com">
+    <wsdl:documentation>Punto Red Web Service</wsdl:documentation>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.puntored.brainwinner.com">
+            <import namespace="http://dto.ws.puntored.brainwinner.com"/>
+            <element name="consultarProductosDisponibles">
+                <complexType>
+                    <sequence>
+                        <element name="puntoServicio" type="string"/>
+                        <element name="clave" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="consultarProductosDisponiblesResponse">
+                <complexType>
+                    <sequence>
+                        <element name="consultarProductosDisponiblesReturn" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="pagarWithIAC">
+                <complexType>
+                    <sequence>
+                        <element name="usuarioDTO" type="tns1:UsuarioDTO"/>
+                        <element name="request" type="tns1:RecaudoDaviviendaDTO"/>
+                        <element name="referencia1" type="string"/>
+                        <element name="referencia2" type="string"/>
+                        <element name="valor" type="string"/>
+                        <element name="fecha" type="string"/>
+                        <element name="trace" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="pagarWithIACResponse">
+                <complexType>
+                    <sequence>
+                        <element name="pagarWithIACReturn" type="tns1:ResponseDaviviendaDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="saleLoteria">
+                <complexType>
+                    <sequence>
+                        <element name="request" type="tns1:BilleteDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="saleLoteriaResponse">
+                <complexType>
+                    <sequence>
+                        <element name="saleLoteriaReturn" type="tns1:BilleteDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="VentaPines">
+                <complexType>
+                    <sequence>
+                        <element name="pinesObjIn" type="tns1:PinesRequestDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="VentaPinesResponse">
+                <complexType>
+                    <sequence>
+                        <element name="VentaPinesReturn" type="tns1:PinesResponseDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="login_winpos">
+                <complexType>
+                    <sequence>
+                        <element name="usuario" type="string"/>
+                        <element name="clave" type="string"/>
+                        <element name="serialHD" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="login_winposResponse">
+                <complexType>
+                    <sequence>
+                        <element name="login_winposReturn" type="tns1:LoginDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaUSSD">
+                <complexType>
+                    <sequence>
+                        <element name="operador" type="string"/>
+                        <element name="numero" type="string"/>
+                        <element name="valor" type="int"/>
+                        <element name="clave" type="string"/>
+                        <element name="min" type="string"/>
+                        <element name="idTransaccion" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaUSSDResponse">
+                <complexType>
+                    <sequence>
+                        <element name="recargaUSSDReturn" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="rechargeUSSD">
+                <complexType>
+                    <sequence>
+                        <element name="request" type="tns1:RequestRechargeDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="rechargeUSSDResponse">
+                <complexType>
+                    <sequence>
+                        <element name="rechargeUSSDReturn" type="tns1:ResponseRechargeDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="queryUSSD">
+                <complexType>
+                    <sequence>
+                        <element name="request" type="tns1:RequestRechargeDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="queryUSSDResponse">
+                <complexType>
+                    <sequence>
+                        <element name="queryUSSDReturn" type="tns1:ResponseRechargeDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="saldoUSSD">
+                <complexType>
+                    <sequence>
+                        <element name="min" type="string"/>
+                        <element name="clave" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="saldoUSSDResponse">
+                <complexType>
+                    <sequence>
+                        <element name="saldoUSSDReturn" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="paquetigo">
+                <complexType>
+                    <sequence>
+                        <element name="request" type="tns1:PaquetigoRequestDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="paquetigoResponse">
+                <complexType>
+                    <sequence>
+                        <element name="paquetigoReturn" type="tns1:PaquetigoResponseDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recarga">
+                <complexType>
+                    <sequence>
+                        <element name="comercioId" type="string"/>
+                        <element name="puntodeventaId" type="string"/>
+                        <element name="terminalId" type="string"/>
+                        <element name="clave" type="string"/>
+                        <element name="codigoOperador" type="string"/>
+                        <element name="numero" type="string"/>
+                        <element name="valor" type="int"/>
+                        <element name="trace" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaResponse">
+                <complexType>
+                    <sequence>
+                        <element name="recargaReturn" type="tns1:ResponseRecargaDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="ConsultarSaldo">
+                <complexType>
+                    <sequence>
+                        <element name="comercio" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="ConsultarSaldoResponse">
+                <complexType>
+                    <sequence>
+                        <element name="ConsultarSaldoReturn" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="consultarLoterias">
+                <complexType>
+                    <sequence>
+                        <element name="terminalId" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="consultarLoteriasResponse" type="impl:ConsultarLoteriasResponse"/>
+            <element name="UltimaTransaccion">
+                <complexType>
+                    <sequence>
+                        <element name="comercio" type="string"/>
+                        <element name="puntodeventa" type="string"/>
+                        <element name="terminal" type="string"/>
+                        <element name="trace" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="UltimaTransaccionResponse">
+                <complexType>
+                    <sequence>
+                        <element name="UltimaTransaccionReturn" type="tns1:UltimaTransaccionDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="reporteTransacciones">
+                <complexType>
+                    <sequence>
+                        <element name="dto" type="tns1:UsuarioDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="reporteTransaccionesResponse">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" name="reporteTransaccionesReturn" type="tns1:TransaccionDiaDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="compra_paquetigos">
+                <complexType>
+                    <sequence>
+                        <element name="min" type="string"/>
+                        <element name="clave" type="string"/>
+                        <element name="id_transaccion" type="string"/>
+                        <element name="codigo_paquetigo" type="string"/>
+                        <element name="numero_celular" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="compra_paquetigosResponse">
+                <complexType>
+                    <sequence>
+                        <element name="compra_paquetigosReturn" type="tns1:ResponseCompraPaquetigoDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaGrandesSuperficies">
+                <complexType>
+                    <sequence>
+                        <element name="puntoServicio" type="string"/>
+                        <element name="clave" type="string"/>
+                        <element name="codigoOperador" type="string"/>
+                        <element name="numero" type="string"/>
+                        <element name="valor" type="int"/>
+                        <element name="trace" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaGrandesSuperficiesResponse">
+                <complexType>
+                    <sequence>
+                        <element name="recargaGrandesSuperficiesReturn" type="tns1:ResponseRecargaDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <complexType name="ConsultarLoteriasResponse">
+                <sequence>
+                    <element name="consultaLoteriasReturn" type="tns1:LoteriaDTO"/>
+                </sequence>
+            </complexType>
+            <element name="recargasUSSDWhatsApp">
+                <complexType>
+                    <sequence>
+                        <element name="operador" type="string"/>
+                        <element name="numero" type="string"/>
+                        <element name="valor" type="int"/>
+                        <element name="clave" type="string"/>
+                        <element name="min" type="string"/>
+                        <element name="idTransaccion" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargasUSSDWhatsAppResponse">
+                <complexType>
+                    <sequence>
+                        <element name="recargasUSSDWhatsAppReturn" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="compra_paquetigosWhatsApp">
+                <complexType>
+                    <sequence>
+                        <element name="min" type="string"/>
+                        <element name="clave" type="string"/>
+                        <element name="id_transaccion" type="string"/>
+                        <element name="codigo_paquetigo" type="string"/>
+                        <element name="numero_celular" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="compra_paquetigosWhatsAppResponse">
+                <complexType>
+                    <sequence>
+                        <element name="compra_paquetigosWhatsAppReturn" type="tns1:ResponseCompraPaquetigoDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="consulta_paquetigo">
+                <complexType>
+                    <sequence>
+                        <element name="codigo_paquetigo" type="string"/>
+                        <element name="idcomercio" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="consulta_paquetigoResponse">
+                <complexType>
+                    <sequence>
+                        <element name="responseReturn" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="pasacupoUSSD">
+                <complexType>
+                    <sequence>
+                        <element name="min" type="string"/>
+                        <element name="clave" type="string"/>
+                        <element name="comercio" type="string"/>
+                        <element name="valor" type="int"/>
+                        <element name="documento" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="pasacupoUSSDResponse">
+                <complexType>
+                    <sequence>
+                        <element name="response" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="consultaUltimasCincoTransaccionesUSSD">
+                <complexType>
+                    <sequence>
+                        <element name="min" type="string"/>
+                        <element name="clave" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="consultaUltimasCincoTransaccionesUSSDResponse">
+                <complexType>
+                    <sequence>
+                        <element name="response" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaConAsistencia">
+                <complexType>
+                    <sequence>
+                        <element name="comercioId" type="string"/>
+                        <element name="puntodeventaId" type="string"/>
+                        <element name="terminalId" type="string"/>
+                        <element name="clave" type="string"/>
+                        <element name="codigoOperador" type="string"/>
+                        <element name="numero" type="string"/>
+                        <element name="valor" type="int"/>
+                        <element name="trace" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaConAsistenciaResponse">
+                <complexType>
+                    <sequence>
+                        <element name="out" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaGrandesSuperficiesConAsistencia">
+                <complexType>
+                    <sequence>
+                        <element name="puntoServicio" type="string"/>
+                        <element name="clave" type="string"/>
+                        <element name="codigoOperador" type="string"/>
+                        <element name="numero" type="string"/>
+                        <element name="valor" type="int"/>
+                        <element name="trace" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaGrandesSuperficiesConAsistenciaResponse">
+                <complexType>
+                    <sequence>
+                        <element name="out" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaUSSDConAsistencia">
+                <complexType>
+                    <sequence>
+                        <element name="operador" type="string"/>
+                        <element name="numero" type="string"/>
+                        <element name="valor" type="int"/>
+                        <element name="clave" type="string"/>
+                        <element name="min" type="string"/>
+                        <element name="idTransaccion" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="recargaUSSDConAsistenciaResponse">
+                <complexType>
+                    <sequence>
+                        <element name="out" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="AutorizacionRemesa">
+                <complexType>
+                    <sequence>
+                        <element name="request" type="tns1:AutorizarRemesaRequestDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="AutorizacionRemesaResponse">
+                <complexType>
+                    <sequence>
+                        <element name="return" type="tns1:AutorizarRemesaResponseDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="RegistroRemesa">
+                <complexType>
+                    <sequence>
+                        <element name="request" type="tns1:RemesaRequestDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="RegistroRemesaResponse">
+                <complexType>
+                    <sequence>
+                        <element name="return" type="tns1:RemesaResponseDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="buyPackage">
+                <complexType>
+                    <sequence>
+                        <element name="request" type="tns1:PaquetesRequestDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="buyPackageResponse">
+                <complexType>
+                    <sequence>
+                        <element name="return" type="tns1:PaquetesResponseDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="request" type="tns1:PaquetigoRequestDTO"/>
+            <element name="resposne" type="tns1:PaquetigoResponseDTO"/>
+            <element name="paquetigoPromocion">
+                <complexType>
+                    <sequence>
+                        <element name="request" type="tns1:PaquetigoRequestDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="paquetigoPromocionResponse">
+                <complexType>
+                    <sequence>
+                        <element name="paquetigoReturn" type="tns1:PaquetigoPromocionResponseDTO"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <complexType name="PaquetigoPromocionResponseDTO"/>
+            <element name="consultarSku">
+                <complexType>
+                    <sequence>
+                        <element name="CodigoProducto" type="string"/>
+                        <element name="ComercioHost" type="string"/>
+                        <element name="ComercioPort" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="NewOperationResponse">
+                <complexType>
+                    <sequence>
+                        <element name="out" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="consultarSkuResponse1">
+                <complexType>
+                    <sequence>
+                        <element name="response" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://dto.ws.puntored.brainwinner.com">
+            <complexType name="UsuarioDTO">
+                <sequence>
+                    <element name="clave" nillable="true" type="string"/>
+                    <element name="comercioId" nillable="true" type="string"/>
+                    <element name="enLinea" nillable="true" type="string"/>
+                    <element name="estado" nillable="true" type="string"/>
+                    <element name="id" nillable="true" type="string"/>
+                    <element name="inpeId" nillable="true" type="string"/>
+                    <element name="intentos" type="int"/>
+                    <element name="ip" nillable="true" type="string"/>
+                    <element name="ipHost" nillable="true" type="string"/>
+                    <element name="mensaje" nillable="true" type="string"/>
+                    <element name="nombre" nillable="true" type="string"/>
+                    <element name="nuevaClave" nillable="true" type="string"/>
+                    <element name="puerto" nillable="true" type="string"/>
+                    <element name="puntodeventaId" nillable="true" type="string"/>
+                    <element name="terminalId" nillable="true" type="string"/>
+                    <element name="trace" type="int"/>
+                    <element name="url" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="RecaudoDaviviendaDTO">
+                <sequence>
+                    <element name="cantidadDiasVencimiento" type="int"/>
+                    <element name="codigoConvenio" nillable="true" type="string"/>
+                    <element name="codigoEntidad" nillable="true" type="string"/>
+                    <element name="codigoIAC" nillable="true" type="string"/>
+                    <element name="codigoOficina" nillable="true" type="string"/>
+                    <element name="consecutivo" nillable="true" type="string"/>
+                    <element name="mayorValor" type="boolean"/>
+                    <element name="menorValor" type="boolean"/>
+                    <element name="nombreConvenio" nillable="true" type="string"/>
+                    <element name="numeroCuentaDestino" nillable="true" type="string"/>
+                    <element name="numeroCuentaRecaudadora" nillable="true" type="string"/>
+                    <element name="tipoCuentaDestino" nillable="true" type="string"/>
+                    <element name="tipoCuentaRecaudadora" nillable="true" type="string"/>
+                    <element name="validaFecha" type="boolean"/>
+                    <element name="valorCeros" type="boolean"/>
+                    <element name="valorExacto" type="boolean"/>
+                </sequence>
+            </complexType>
+            <complexType name="ResponseDaviviendaDTO">
+                <sequence>
+                    <element name="error" nillable="true" type="string"/>
+                    <element name="estado" nillable="true" type="string"/>
+                    <element name="idTransaccion" nillable="true" type="string"/>
+                    <element name="talon" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="BilleteDTO">
+                <sequence>
+                    <element name="cedula" nillable="true" type="string"/>
+                    <element name="celular" nillable="true" type="string"/>
+                    <element name="clave" nillable="true" type="string"/>
+                    <element name="comercioId" nillable="true" type="string"/>
+                    <element name="estado" nillable="true" type="string"/>
+                    <element name="fecha" nillable="true" type="string"/>
+                    <element name="fraccion" nillable="true" type="string"/>
+                    <element name="idLoteria" nillable="true" type="string"/>
+                    <element name="idTransaccion" nillable="true" type="string"/>
+                    <element name="idTransaccionGana" nillable="true" type="string"/>
+                    <element name="idUsuario" nillable="true" type="string"/>
+                    <element name="mensaje" nillable="true" type="string"/>
+                    <element name="nombre" nillable="true" type="string"/>
+                    <element name="numSorteo" nillable="true" type="string"/>
+                    <element name="numero" nillable="true" type="string"/>
+                    <element name="password" nillable="true" type="string"/>
+                    <element name="puntodeventaId" nillable="true" type="string"/>
+                    <element name="serie" nillable="true" type="string"/>
+                    <element name="terminalId" nillable="true" type="string"/>
+                    <element name="trace" nillable="true" type="string"/>
+                    <element name="valor" type="int"/>
+                </sequence>
+            </complexType>
+            <complexType name="PinesRequestDTO">
+                <sequence>
+                    <element name="celular" nillable="true" type="string"/>
+                    <element name="clave" nillable="true" type="string"/>
+                    <element name="codigoProducto" nillable="true" type="string"/>
+                    <element name="comercioId" nillable="true" type="string"/>
+                    <element name="puntodeventaId" nillable="true" type="string"/>
+                    <element name="terminalId" nillable="true" type="string"/>
+                    <element name="trace" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="PinesResponseDTO">
+                <sequence>
+                    <element name="error" nillable="true" type="string"/>
+                    <element name="estado" nillable="true" type="string"/>
+                    <element name="fechaExpiracion" nillable="true" type="string"/>
+                    <element name="idProducto" nillable="true" type="string"/>
+                    <element name="idTransaccion" nillable="true" type="string"/>
+                    <element name="pin" nillable="true" type="string"/>
+                    <element name="serial" nillable="true" type="string"/>
+                    <element name="valor" type="int"/>
+                </sequence>
+            </complexType>
+            <complexType name="AutorizarRemesaRequestDTO">
+                <sequence>
+                    <element name="usuario" nillable="true" type="string"/>
+                    <element name="comercioId" nillable="true" type="string"/>
+                    <element name="puntodeventaId" nillable="true" type="string"/>
+                    <element name="terminalId" nillable="true" type="string"/>
+                    <element name="valor" nillable="true" type="double"/>
+                    <element name="comision" nillable="true" type="double"/>
+                    <element name="tipo" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="AutorizarRemesaResponseDTO">
+                <sequence>
+                    <element name="error" nillable="true" type="string"/>
+                    <element name="estado" nillable="true" type="string"/>
+                    <element name="idTransaccion" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="RemesaRequestDTO">
+                <sequence>
+                    <element name="transaccionId" nillable="true" type="string"/>
+                    <element name="transaccion" nillable="true" type="string"/>
+                    <element name="comision" nillable="true" type="double"/>
+                    <element name="valorGiro" nillable="true" type="double"/>
+                    <element name="valorTotal" nillable="true" type="double"/>
+                    <element name="tipo" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="RemesaResponseDTO">
+                <sequence>
+                    <element name="error" nillable="true" type="string"/>
+                    <element name="estado" nillable="true" type="string"/>
+                    <element name="idTransaccion" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="LoginDTO">
+                <sequence>
+                    <element name="clave" nillable="true" type="string"/>
+                    <element name="comercio" nillable="true" type="string"/>
+                    <element name="estado" type="boolean"/>
+                    <element name="host" nillable="true" type="string"/>
+                    <element name="idUsuario" nillable="true" type="string"/>
+                    <element name="message" nillable="true" type="string"/>
+                    <element name="nombre" nillable="true" type="string"/>
+                    <element name="port" type="int"/>
+                    <element name="puntodeventa" nillable="true" type="string"/>
+                    <element name="serialHD" nillable="true" type="string"/>
+                    <element name="terminal" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="RequestRechargeDTO">
+                <sequence>
+                    <element name="clave" nillable="true" type="string"/>
+                    <element name="min" nillable="true" type="string"/>
+                    <element name="numero" nillable="true" type="string"/>
+                    <element name="operador" nillable="true" type="string"/>
+                    <element name="trace" nillable="true" type="string"/>
+                    <element name="valor" type="int"/>
+                </sequence>
+            </complexType>
+            <complexType name="ResponseRechargeDTO">
+                <sequence>
+                    <element name="error" nillable="true" type="string"/>
+                    <element name="idTransaccion" nillable="true" type="string"/>
+                    <element name="responseCode" nillable="true" type="string"/>
+                    <element name="saldo" type="long"/>
+                </sequence>
+            </complexType>
+            <complexType name="PaquetigoRequestDTO">
+                <sequence>
+                    <element name="clave" nillable="true" type="string"/>
+                    <element name="codigoPaquetigo" nillable="true" type="string"/>
+                    <element name="comercioId" nillable="true" type="string"/>
+                    <element name="numeroCelular" nillable="true" type="string"/>
+                    <element name="puntodeventaId" nillable="true" type="string"/>
+                    <element name="terminalId" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="PaquetigoResponseDTO">
+                <sequence>
+                    <element name="error" nillable="true" type="string"/>
+                    <element name="idTransaccion" nillable="true" type="string"/>
+                    <element name="response" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="PaquetigoPromocionResponseDTO">
+                <sequence>
+                    <element name="error" nillable="true" type="string"/>
+                    <element name="idTransaccion" nillable="true" type="string"/>
+                    <element name="response" nillable="true" type="string"/>
+                    <element name="promocion" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="PaquetesRequestDTO">
+                <sequence>
+                    <element name="clave" nillable="true" type="string"/>
+                    <element name="codigoPaquetigo" nillable="true" type="string"/>
+                    <element name="comercioId" nillable="true" type="string"/>
+                    <element name="numeroCelular" nillable="true" type="string"/>
+                    <element name="puntodeventaId" nillable="true" type="string"/>
+                    <element name="terminalId" nillable="true" type="string"/>
+                    <element name="sku" nillable="true" type="int"/>
+                </sequence>
+            </complexType>
+            <complexType name="PaquetesResponseDTO">
+                <sequence>
+                    <element name="error" nillable="true" type="string"/>
+                    <element name="idTransaccion" nillable="true" type="string"/>
+                    <element name="response" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="ResponseRecargaDTO">
+                <sequence>
+                    <element name="codigoRespuesta" nillable="true" type="string"/>
+                    <element name="comercio" nillable="true" type="string"/>
+                    <element name="encabezadoTiquete" nillable="true" type="string"/>
+                    <element name="estado" type="boolean"/>
+                    <element name="idTransaccion" type="int"/>
+                    <element name="instrucciones" nillable="true" type="string"/>
+                    <element name="mensaje" nillable="true" type="string"/>
+                    <element name="pieTiquete" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="LoteriaDTO">
+                <sequence>
+                    <element name="descripcion" nillable="true" type="string"/>
+                    <element name="fechaSorteo" nillable="true" type="string"/>
+                    <element name="idError" nillable="true" type="string"/>
+                    <element name="idLoteria" nillable="true" type="string"/>
+                    <element name="mensaje" nillable="true" type="string"/>
+                    <element name="numeroLoteria" nillable="true" type="string"/>
+                    <element name="numeroSorteo" nillable="true" type="string"/>
+                    <element name="valorFraccion" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="UltimaTransaccionDTO">
+                <sequence>
+                    <element name="error" nillable="true" type="string"/>
+                    <element name="estado" nillable="true" type="string"/>
+                    <element name="id" nillable="true" type="string"/>
+                    <element name="mensaje" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="TransaccionDiaDTO">
+                <sequence>
+                    <element name="cantidad" nillable="true" type="string"/>
+                    <element name="estado" nillable="true" type="string"/>
+                    <element name="fecha" nillable="true" type="string"/>
+                    <element name="hora" nillable="true" type="string"/>
+                    <element name="idTransaccion" nillable="true" type="string"/>
+                    <element name="producto" nillable="true" type="string"/>
+                    <element name="sumatoria" nillable="true" type="string"/>
+                    <element name="valor" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="ResponseCompraPaquetigoDTO">
+                <sequence>
+                    <element name="codigoRespuesta" nillable="true" type="string"/>
+                    <element name="estado" type="boolean"/>
+                    <element name="idTransaccion" type="int"/>
+                    <element name="mensaje" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="saleLoteriaRequest">
+        <wsdl:part name="parameters" element="impl:saleLoteria"/>
+    </wsdl:message>
+    <wsdl:message name="saleLoteriaResponse">
+        <wsdl:part name="parameters" element="impl:saleLoteriaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="buyPackageRequest">
+        <wsdl:part name="parameters" element="impl:buyPackage"/>
+    </wsdl:message>
+    <wsdl:message name="buyPackageResponse">
+        <wsdl:part name="parameters" element="impl:buyPackageResponse"/>
+    </wsdl:message>
+    <wsdl:message name="UltimaTransaccionRequest">
+        <wsdl:part name="parameters" element="impl:UltimaTransaccion"/>
+    </wsdl:message>
+    <wsdl:message name="UltimaTransaccionResponse">
+        <wsdl:part name="parameters" element="impl:UltimaTransaccionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="recargaRequest">
+        <wsdl:part name="parameters" element="impl:recarga"/>
+    </wsdl:message>
+    <wsdl:message name="recargaResponse">
+        <wsdl:part name="parameters" element="impl:recargaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="recargaUSSDConAsistenciaRequest">
+        <wsdl:part name="parameters" element="impl:recargaUSSDConAsistencia"/>
+    </wsdl:message>
+    <wsdl:message name="recargaUSSDConAsistenciaResponse">
+        <wsdl:part name="parameters" element="impl:recargaUSSDConAsistenciaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="AutorizacionRemesaRequest">
+        <wsdl:part name="parameters" element="impl:AutorizacionRemesa"/>
+    </wsdl:message>
+    <wsdl:message name="AutorizacionRemesaResponse">
+        <wsdl:part name="parameters" element="impl:AutorizacionRemesaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="recargasUSSDWhatsAppRequest">
+        <wsdl:part name="parameters" element="impl:recargasUSSDWhatsApp"/>
+    </wsdl:message>
+    <wsdl:message name="recargasUSSDWhatsAppResponse">
+        <wsdl:part name="parameters" element="impl:recargasUSSDWhatsAppResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ConsultarSaldoRequest">
+        <wsdl:part name="parameters" element="impl:ConsultarSaldo"/>
+    </wsdl:message>
+    <wsdl:message name="ConsultarSaldoResponse">
+        <wsdl:part name="parameters" element="impl:ConsultarSaldoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="paquetigoRequest">
+        <wsdl:part name="parameters" element="impl:paquetigo"/>
+    </wsdl:message>
+    <wsdl:message name="paquetigoResponse">
+        <wsdl:part name="parameters" element="impl:paquetigoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="pagarWithIACRequest">
+        <wsdl:part name="parameters" element="impl:pagarWithIAC"/>
+    </wsdl:message>
+    <wsdl:message name="pagarWithIACResponse">
+        <wsdl:part name="parameters" element="impl:pagarWithIACResponse"/>
+    </wsdl:message>
+    <wsdl:message name="RegistroRemesaRequest">
+        <wsdl:part name="parameters" element="impl:RegistroRemesa"/>
+    </wsdl:message>
+    <wsdl:message name="RegistroRemesaResponse">
+        <wsdl:part name="parameters" element="impl:RegistroRemesaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="saldoUSSDRequest">
+        <wsdl:part name="parameters" element="impl:saldoUSSD"/>
+    </wsdl:message>
+    <wsdl:message name="saldoUSSDResponse">
+        <wsdl:part name="parameters" element="impl:saldoUSSDResponse"/>
+    </wsdl:message>
+    <wsdl:message name="rechargeUSSDRequest">
+        <wsdl:part name="parameters" element="impl:rechargeUSSD"/>
+    </wsdl:message>
+    <wsdl:message name="rechargeUSSDResponse">
+        <wsdl:part name="parameters" element="impl:rechargeUSSDResponse"/>
+    </wsdl:message>
+    <wsdl:message name="consultaUltimasCincoTransaccionesUSSDRequest">
+        <wsdl:part name="parameters" element="impl:consultaUltimasCincoTransaccionesUSSD"/>
+    </wsdl:message>
+    <wsdl:message name="consultaUltimasCincoTransaccionesUSSDResponse">
+        <wsdl:part name="parameters" element="impl:consultaUltimasCincoTransaccionesUSSDResponse"/>
+    </wsdl:message>
+    <wsdl:message name="reporteTransaccionesRequest">
+        <wsdl:part name="parameters" element="impl:reporteTransacciones"/>
+    </wsdl:message>
+    <wsdl:message name="reporteTransaccionesResponse">
+        <wsdl:part name="parameters" element="impl:reporteTransaccionesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="consultarSkuRequest">
+        <wsdl:part name="parameters" element="impl:consultarSku"/>
+    </wsdl:message>
+    <wsdl:message name="consultarSkuResponse1">
+        <wsdl:part name="parameters" element="impl:consultarSkuResponse1"/>
+    </wsdl:message>
+    <wsdl:message name="paquetigoPromocionRequest">
+        <wsdl:part name="parameters" element="impl:paquetigoPromocion"/>
+    </wsdl:message>
+    <wsdl:message name="paquetigoPromocionResponse">
+        <wsdl:part name="parameters" element="impl:paquetigoPromocionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryUSSDRequest">
+        <wsdl:part name="parameters" element="impl:queryUSSD"/>
+    </wsdl:message>
+    <wsdl:message name="queryUSSDResponse">
+        <wsdl:part name="parameters" element="impl:queryUSSDResponse"/>
+    </wsdl:message>
+    <wsdl:message name="recargaGrandesSuperficiesConAsistenciaRequest">
+        <wsdl:part name="parameters" element="impl:recargaGrandesSuperficiesConAsistencia"/>
+    </wsdl:message>
+    <wsdl:message name="recargaGrandesSuperficiesConAsistenciaResponse">
+        <wsdl:part name="parameters" element="impl:recargaGrandesSuperficiesConAsistenciaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="login_winposRequest">
+        <wsdl:part name="parameters" element="impl:login_winpos"/>
+    </wsdl:message>
+    <wsdl:message name="login_winposResponse">
+        <wsdl:part name="parameters" element="impl:login_winposResponse"/>
+    </wsdl:message>
+    <wsdl:message name="compra_paquetigosWhatsAppRequest">
+        <wsdl:part name="parameters" element="impl:compra_paquetigosWhatsApp"/>
+    </wsdl:message>
+    <wsdl:message name="compra_paquetigosWhatsAppResponse">
+        <wsdl:part name="parameters" element="impl:compra_paquetigosWhatsAppResponse"/>
+    </wsdl:message>
+    <wsdl:message name="recargaGrandesSuperficiesRequest">
+        <wsdl:part name="parameters" element="impl:recargaGrandesSuperficies"/>
+    </wsdl:message>
+    <wsdl:message name="recargaGrandesSuperficiesResponse">
+        <wsdl:part name="parameters" element="impl:recargaGrandesSuperficiesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="consultarLoteriasRequest">
+        <wsdl:part name="parameters" element="impl:consultarLoterias"/>
+    </wsdl:message>
+    <wsdl:message name="consultarLoteriasResponse">
+        <wsdl:part name="parameters" element="impl:consultarLoteriasResponse"/>
+    </wsdl:message>
+    <wsdl:message name="consultarProductosDisponiblesRequest">
+        <wsdl:part name="parameters" element="impl:consultarProductosDisponibles"/>
+    </wsdl:message>
+    <wsdl:message name="consultarProductosDisponiblesResponse">
+        <wsdl:part name="parameters" element="impl:consultarProductosDisponiblesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="pasacupoUSSDRequest">
+        <wsdl:part name="parameters" element="impl:pasacupoUSSD"/>
+    </wsdl:message>
+    <wsdl:message name="pasacupoUSSDResponse">
+        <wsdl:part name="parameters" element="impl:pasacupoUSSDResponse"/>
+    </wsdl:message>
+    <wsdl:message name="compra_paquetigosRequest">
+        <wsdl:part name="parameters" element="impl:compra_paquetigos"/>
+    </wsdl:message>
+    <wsdl:message name="compra_paquetigosResponse">
+        <wsdl:part name="parameters" element="impl:compra_paquetigosResponse"/>
+    </wsdl:message>
+    <wsdl:message name="recargaConAsistenciaRequest">
+        <wsdl:part name="parameters" element="impl:recargaConAsistencia"/>
+    </wsdl:message>
+    <wsdl:message name="recargaConAsistenciaResponse">
+        <wsdl:part name="parameters" element="impl:recargaConAsistenciaResponse"/>
+    </wsdl:message>
+    <wsdl:message name="recargaUSSDRequest">
+        <wsdl:part name="parameters" element="impl:recargaUSSD"/>
+    </wsdl:message>
+    <wsdl:message name="recargaUSSDResponse">
+        <wsdl:part name="parameters" element="impl:recargaUSSDResponse"/>
+    </wsdl:message>
+    <wsdl:message name="consulta_paquetigoRequest">
+        <wsdl:part name="parameters" element="impl:consulta_paquetigo"/>
+    </wsdl:message>
+    <wsdl:message name="consulta_paquetigoResponse">
+        <wsdl:part name="parameters" element="impl:consulta_paquetigoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="VentaPinesRequest">
+        <wsdl:part name="parameters" element="impl:VentaPines"/>
+    </wsdl:message>
+    <wsdl:message name="VentaPinesResponse">
+        <wsdl:part name="parameters" element="impl:VentaPinesResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="PuntoRedWSServicePortType">
+        <wsdl:operation name="saleLoteria">
+            <wsdl:input message="impl:saleLoteriaRequest" wsaw:Action="http://ws.puntored.brainwinner.com/saleLoteria"/>
+            <wsdl:output message="impl:saleLoteriaResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/saleLoteriaResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="buyPackage">
+            <wsdl:input message="impl:buyPackageRequest" wsaw:Action="http://ws.puntored.brainwinner.com/buyPackage"/>
+            <wsdl:output message="impl:buyPackageResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/buyPackageResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="UltimaTransaccion">
+            <wsdl:input message="impl:UltimaTransaccionRequest" wsaw:Action="http://ws.puntored.brainwinner.com/UltimaTransaccion"/>
+            <wsdl:output message="impl:UltimaTransaccionResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/UltimaTransaccionResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="recarga">
+            <wsdl:input message="impl:recargaRequest" wsaw:Action="http://ws.puntored.brainwinner.com/recarga"/>
+            <wsdl:output message="impl:recargaResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/recargaResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="recargaUSSDConAsistencia">
+            <wsdl:input message="impl:recargaUSSDConAsistenciaRequest" wsaw:Action="http://ws.puntored.brainwinner.com/recargaUSSDConAsistencia"/>
+            <wsdl:output message="impl:recargaUSSDConAsistenciaResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/recargaUSSDConAsistenciaResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="AutorizacionRemesa">
+            <wsdl:input message="impl:AutorizacionRemesaRequest" wsaw:Action="http://ws.puntored.brainwinner.com/AutorizacionRemesa"/>
+            <wsdl:output message="impl:AutorizacionRemesaResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/AutorizacionRemesaResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="recargasUSSDWhatsApp">
+            <wsdl:input message="impl:recargasUSSDWhatsAppRequest" wsaw:Action="http://ws.puntored.brainwinner.com/recargasUSSDWhatsApp"/>
+            <wsdl:output message="impl:recargasUSSDWhatsAppResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/recargasUSSDWhatsAppResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ConsultarSaldo">
+            <wsdl:input message="impl:ConsultarSaldoRequest" wsaw:Action="http://ws.puntored.brainwinner.com/ConsultarSaldo"/>
+            <wsdl:output message="impl:ConsultarSaldoResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/ConsultarSaldoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="paquetigo">
+            <wsdl:input message="impl:paquetigoRequest" wsaw:Action="http://ws.puntored.brainwinner.com/paquetigo"/>
+            <wsdl:output message="impl:paquetigoResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/paquetigoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="pagarWithIAC">
+            <wsdl:input message="impl:pagarWithIACRequest" wsaw:Action="http://ws.puntored.brainwinner.com/pagarWithIAC"/>
+            <wsdl:output message="impl:pagarWithIACResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/pagarWithIACResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="RegistroRemesa">
+            <wsdl:input message="impl:RegistroRemesaRequest" wsaw:Action="http://ws.puntored.brainwinner.com/RegistroRemesa"/>
+            <wsdl:output message="impl:RegistroRemesaResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/RegistroRemesaResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="saldoUSSD">
+            <wsdl:input message="impl:saldoUSSDRequest" wsaw:Action="http://ws.puntored.brainwinner.com/saldoUSSD"/>
+            <wsdl:output message="impl:saldoUSSDResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/saldoUSSDResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="rechargeUSSD">
+            <wsdl:input message="impl:rechargeUSSDRequest" wsaw:Action="http://ws.puntored.brainwinner.com/rechargeUSSD"/>
+            <wsdl:output message="impl:rechargeUSSDResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/rechargeUSSDResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="consultaUltimasCincoTransaccionesUSSD">
+            <wsdl:input message="impl:consultaUltimasCincoTransaccionesUSSDRequest" wsaw:Action="http://ws.puntored.brainwinner.com/consultaUltimasCincoTransaccionesUSSD"/>
+            <wsdl:output message="impl:consultaUltimasCincoTransaccionesUSSDResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/consultaUltimasCincoTransaccionesUSSDResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="reporteTransacciones">
+            <wsdl:input message="impl:reporteTransaccionesRequest" wsaw:Action="http://ws.puntored.brainwinner.com/reporteTransacciones"/>
+            <wsdl:output message="impl:reporteTransaccionesResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/reporteTransaccionesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="consultarSku">
+            <wsdl:input message="impl:consultarSkuRequest" wsaw:Action="http://ws.puntored.brainwinner.com/consultarSku"/>
+            <wsdl:output message="impl:consultarSkuResponse1" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/consultarSkuResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="paquetigoPromocion">
+            <wsdl:input message="impl:paquetigoPromocionRequest" wsaw:Action="http://ws.puntored.brainwinner.com/paquetigoPromocion"/>
+            <wsdl:output message="impl:paquetigoPromocionResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/paquetigoPromocionResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryUSSD">
+            <wsdl:input message="impl:queryUSSDRequest" wsaw:Action="http://ws.puntored.brainwinner.com/queryUSSD"/>
+            <wsdl:output message="impl:queryUSSDResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/queryUSSDResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="recargaGrandesSuperficiesConAsistencia">
+            <wsdl:input message="impl:recargaGrandesSuperficiesConAsistenciaRequest" wsaw:Action="http://ws.puntored.brainwinner.com/recargaGrandesSuperficiesConAsistencia"/>
+            <wsdl:output message="impl:recargaGrandesSuperficiesConAsistenciaResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/recargaGrandesSuperficiesConAsistenciaResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="login_winpos">
+            <wsdl:input message="impl:login_winposRequest" wsaw:Action="http://ws.puntored.brainwinner.com/login_winpos"/>
+            <wsdl:output message="impl:login_winposResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/login_winposResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="compra_paquetigosWhatsApp">
+            <wsdl:input message="impl:compra_paquetigosWhatsAppRequest" wsaw:Action="http://ws.puntored.brainwinner.com/compra_paquetigosWhatsApp"/>
+            <wsdl:output message="impl:compra_paquetigosWhatsAppResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/compra_paquetigosWhatsAppResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="recargaGrandesSuperficies">
+            <wsdl:input message="impl:recargaGrandesSuperficiesRequest" wsaw:Action="http://ws.puntored.brainwinner.com/recargaGrandesSuperficies"/>
+            <wsdl:output message="impl:recargaGrandesSuperficiesResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/recargaGrandesSuperficiesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="consultarLoterias">
+            <wsdl:input message="impl:consultarLoteriasRequest" wsaw:Action="http://ws.puntored.brainwinner.com/consultarLoterias"/>
+            <wsdl:output message="impl:consultarLoteriasResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/consultarLoteriasResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="consultarProductosDisponibles">
+            <wsdl:input message="impl:consultarProductosDisponiblesRequest" wsaw:Action="http://ws.puntored.brainwinner.com/consultarProductosDisponibles"/>
+            <wsdl:output message="impl:consultarProductosDisponiblesResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/consultarProductosDisponiblesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="pasacupoUSSD">
+            <wsdl:input message="impl:pasacupoUSSDRequest" wsaw:Action="http://ws.puntored.brainwinner.com/pasacupoUSSD"/>
+            <wsdl:output message="impl:pasacupoUSSDResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/pasacupoUSSDResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="compra_paquetigos">
+            <wsdl:input message="impl:compra_paquetigosRequest" wsaw:Action="http://ws.puntored.brainwinner.com/compra_paquetigos"/>
+            <wsdl:output message="impl:compra_paquetigosResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/compra_paquetigosResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="recargaConAsistencia">
+            <wsdl:input message="impl:recargaConAsistenciaRequest" wsaw:Action="http://ws.puntored.brainwinner.com/recargaConAsistencia"/>
+            <wsdl:output message="impl:recargaConAsistenciaResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/recargaConAsistenciaResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="recargaUSSD">
+            <wsdl:input message="impl:recargaUSSDRequest" wsaw:Action="http://ws.puntored.brainwinner.com/recargaUSSD"/>
+            <wsdl:output message="impl:recargaUSSDResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/recargaUSSDResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="consulta_paquetigo">
+            <wsdl:input message="impl:consulta_paquetigoRequest" wsaw:Action="http://ws.puntored.brainwinner.com/consulta_paquetigo"/>
+            <wsdl:output message="impl:consulta_paquetigoResponse" wsaw:Action="http://ws.puntored.brainwinner.com/PuntoRedWSServicePortType/consulta_paquetigoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="VentaPines">
+            <wsdl:input message="impl:VentaPinesRequest" wsaw:Action="http://ws.puntored.brainwinner.com/VentaPines"/>
+            <wsdl:output message="impl:VentaPinesResponse" wsaw:Action="//ws.puntored.brainwinner.com/PuntoRedWS/VentaPinesResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PuntoRedWSSoapBinding" type="impl:PuntoRedWSServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="saleLoteria">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/saleLoteria" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="buyPackage">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/buyPackage" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UltimaTransaccion">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/UltimaTransaccion" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recarga">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/recarga" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recargaUSSDConAsistencia">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/recargaUSSDConAsistencia" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AutorizacionRemesa">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/AutorizacionRemesa" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recargasUSSDWhatsApp">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/recargasUSSDWhatsApp" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConsultarSaldo">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/ConsultarSaldo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="paquetigo">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/paquetigo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pagarWithIAC">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/pagarWithIAC" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegistroRemesa">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/RegistroRemesa" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="saldoUSSD">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/saldoUSSD" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="rechargeUSSD">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/rechargeUSSD" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="consultaUltimasCincoTransaccionesUSSD">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/consultaUltimasCincoTransaccionesUSSD" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="reporteTransacciones">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/reporteTransacciones" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="consultarSku">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/consultarSku" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="paquetigoPromocion">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/paquetigoPromocion" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryUSSD">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/queryUSSD" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recargaGrandesSuperficiesConAsistencia">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/recargaGrandesSuperficiesConAsistencia" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="login_winpos">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/login_winpos" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="compra_paquetigosWhatsApp">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/compra_paquetigosWhatsApp" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recargaGrandesSuperficies">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/recargaGrandesSuperficies" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="consultarLoterias">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/consultarLoterias" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="consultarProductosDisponibles">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/consultarProductosDisponibles" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pasacupoUSSD">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/pasacupoUSSD" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="compra_paquetigos">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/compra_paquetigos" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recargaConAsistencia">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/recargaConAsistencia" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recargaUSSD">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/recargaUSSD" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="consulta_paquetigo">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/consulta_paquetigo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VentaPines">
+            <soap:operation soapAction="http://ws.puntored.brainwinner.com/VentaPines" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PuntoRedWSService">
+        <wsdl:port name="PuntoRedWS" binding="impl:PuntoRedWSSoapBinding">
+            <soap:address location="http://200.31.20.75:8980/WebServicePuntoRedHTTPAutentication/services/PuntoRedWSService.PuntoRedWS/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
